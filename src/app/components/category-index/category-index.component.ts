@@ -3,6 +3,7 @@ import { CategoryService } from '../../services/category.service';
 import { Category } from '../../models/category.model';
 import {DatePipe, JsonPipe, NgForOf} from '@angular/common';
 import {Router, RouterLink} from "@angular/router";
+import {InventoryIndexComponent} from "../inventory-index/inventory-index.component";
 
 @Component({
   selector: 'app-category-index',
@@ -12,7 +13,8 @@ import {Router, RouterLink} from "@angular/router";
     NgForOf,
     DatePipe,
     JsonPipe,
-    RouterLink
+    RouterLink,
+    InventoryIndexComponent
   ],
   styleUrls: ['./category-index.component.css']
 })

@@ -1,29 +1,33 @@
-<div class="container">
-  <h2>Inventory Items</h2>
-  <button class="btn btn-sm btn-success" (click)="createInventory()">Add Inventory</button>
-  <table class="table table-striped">
-    <thead>
-    <tr>
-      <th>ID</th>
-      <th>Item Name</th>
-      <th>Quantity</th>
-      <th>Location</th>
-      <th>Last Updated</th>
-      <th>Actions</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let item of inventoryItems">
-      <td>{{ item.inventory_Id }}</td>
-      <td>{{ item.itemName }}</td>
-      <td>{{ item.quantity }}</td>
-      <td>{{ item.location }}</td>
-      <td>{{ item.last_Updated | date: 'short' }}</td>
-      <td>
-        <button class="btn btn-sm btn-primary" (click)="editInventory(item.inventory_Id)">Edit</button>
-        <button class="btn btn-sm btn-danger" (click)="deleteItem(item.inventory_Id)">Delete</button>
-      </td>
-    </tr>
-    </tbody>
-  </table>
-</div>
+
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Inventory Items</h4>
+      <button class="btn btn-sm btn-success" (click)="createInventory()">Add Inventory</button>
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Item Name</th>
+          <th>Quantity</th>
+          <th>Location</th>
+          <th>Last Updated</th>
+          <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of inventoryItems">
+          <td>{{ item.inventory_Id }}</td>
+          <td>{{ item.itemName }}</td>
+          <td>{{ item.quantity }}</td>
+          <td>{{ item.location }}</td>
+          <td>{{ item.last_Updated | date: 'short' }}</td>
+          <td>
+            <button class="btn btn-sm btn-primary" (click)="editInventory(item.inventory_Id)">Edit</button>
+            <button class="btn btn-sm btn-danger" (click)="deleteItem(item.inventory_Id)">Delete</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+

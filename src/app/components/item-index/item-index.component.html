@@ -1,31 +1,113 @@
-<div class="container mt-4">
-  <h2>Item List</h2>
 
-  <button (click)="createItem()" class="btn btn-sm btn-success">Add Item</button>
+<body>
+<div class="container-scroller">
 
-  <table class="table">
-    <thead>
-    <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Category ID</th>
-      <th>Created At</th>
-      <th>Action</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let item of items">
-      <td>{{ item.item_Id }}</td>
-      <td>{{ item.item_Name }}</td>
-      <td>{{ item.description }}</td>
-      <td>{{ item.category_Id }}</td>
-      <td>{{ item.created_At | date }}</td>
-      <td>
-        <button (click)="(editItem(item.item_Id))" class="btn btn-sm btn-primary">Edit</button>
-        <button (click)="deleteItem(item.item_Id)" class="btn btn-sm btn-danger">Delete</button>
-      </td>
-    </tr>
-    </tbody>
-  </table>
+  <!-- partial:partials/_navbar.html -->
+  <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+    <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+      Laboratory Management
+    </div>
+    <div class="navbar-menu-wrapper d-flex align-items-stretch">
+      <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+        <span class="mdi mdi-menu"></span>
+      </button>
+      <div class="search-field d-none d-md-block">
+        <form class="d-flex align-items-center h-100" action="#">
+          <div class="input-group">
+            <div class="input-group-prepend bg-transparent">
+              <i class="input-group-text border-0 mdi mdi-magnify"></i>
+            </div>
+            <input type="text" class="form-control bg-transparent border-0" placeholder="Search projects">
+          </div>
+        </form>
+      </div>
+
+      <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+        <span class="mdi mdi-menu"></span>
+      </button>
+    </div>
+  </nav>
+  <!-- partial -->
+  <div class="container-fluid page-body-wrapper">
+    <!-- partial:partials/_sidebar.html -->
+    <nav class="sidebar sidebar-offcanvas" id="sidebar">
+      <ul class="nav">
+        <li class="nav-item nav-profile">
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/dashboard">
+            <span class="menu-title">Dashboard</span>
+            <i class="mdi mdi-home menu-icon"></i>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/category-index">
+            <span class="menu-title">Item Categories</span>
+            <i class="mdi mdi-folder-multiple-outline menu-icon"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/item-index">
+            <span class="menu-title">Items</span>
+            <i class="mdi mdi-cube-outline menu-icon"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/transaction-index">
+            <span class="menu-title">Transactions</span>
+            <i class="mdi mdi-swap-horizontal menu-icon"></i>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <!-- partial -->
+    <div class="main-panel">
+      <div class="content-wrapper">
+        <div class="page-header">
+          <h3 class="page-title">
+                <span class="page-title-icon bg-gradient-primary text-white me-2">
+                  <i class="mdi mdi-home"></i>
+                </span> Item Index
+          </h3>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Item List</h4>
+            <button (click)="createItem()" class="btn btn-sm btn-success">Add Item</button>
+            <table class="table table-hover">
+              <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Category ID</th>
+                <th>Created At</th>
+                <th>Action</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let item of items">
+                <td>{{ item.item_Id }}</td>
+                <td>{{ item.item_Name }}</td>
+                <td>{{ item.description }}</td>
+                <td>{{ item.category_Id }}</td>
+                <td>{{ item.created_At | date }}</td>
+                <td>
+                  <button (click)="(editItem(item.item_Id))" class="btn btn-sm btn-primary">Edit</button>
+                  <button (click)="deleteItem(item.item_Id)" class="btn btn-sm btn-danger">Delete</button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+
+
+      </div>
+    </div>
+  </div>
 </div>
+</body>

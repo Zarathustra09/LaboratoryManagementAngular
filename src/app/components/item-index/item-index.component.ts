@@ -3,16 +3,18 @@ import { ItemService } from '../../services/item.service';
 import { Item } from '../../models/item.model';
 import {Router, RouterLink} from "@angular/router";
 import {DatePipe, NgForOf} from "@angular/common";
+import {InventoryIndexComponent} from "../inventory-index/inventory-index.component";
 
 @Component({
   selector: 'app-item-index',
   templateUrl: './item-index.component.html',
   standalone: true,
-  imports: [
-    RouterLink,
-    NgForOf,
-    DatePipe
-  ],
+    imports: [
+        RouterLink,
+        NgForOf,
+        DatePipe,
+        InventoryIndexComponent
+    ],
   styleUrls: ['./item-index.component.css']
 })
 export class ItemIndexComponent implements OnInit {

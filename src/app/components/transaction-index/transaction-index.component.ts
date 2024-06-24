@@ -6,7 +6,8 @@ import { Transaction } from '../../models/transaction.model';
 import { Item } from '../../models/item.model';
 import { User } from '../../models/user.model';
 import { DatePipe, NgForOf } from "@angular/common";
-import {Router} from "@angular/router";
+import {Router, RouterLink} from "@angular/router";
+import {InventoryIndexComponent} from "../inventory-index/inventory-index.component";
 
 @Component({
   selector: 'app-transaction-index',
@@ -14,7 +15,9 @@ import {Router} from "@angular/router";
   standalone: true,
   imports: [
     DatePipe,
-    NgForOf
+    NgForOf,
+    InventoryIndexComponent,
+    RouterLink
   ],
   styleUrls: ['./transaction-index.component.css']
 })

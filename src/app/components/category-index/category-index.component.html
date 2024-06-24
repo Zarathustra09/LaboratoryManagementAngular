@@ -1,27 +1,111 @@
-<div class="container mt-4">
-  <h2>Category List</h2>
-  <button class="btn btn-success btn-sm" routerLink="/category-create">Add Category</button>
-  <table class="table table-bordered table-hover">
-    <thead class="thead-light">
-    <tr>
-      <th>Category Id</th>
-      <th>Category Name</th>
-      <th>Description</th>
-      <th>Created At</th>
-      <th>Actions</th> <!-- Add Actions column -->
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let category of categories">
-      <td>{{ category.category_Id }}</td>
-      <td>{{ category.category_Name }}</td>
-      <td>{{ category.description }}</td>
-      <td>{{ category.created_At | date:'short' }}</td>
-      <td>
-        <button class="btn btn-primary btn-sm" (click)="editCategory(category.category_Id)">Update</button>
-        <button class="btn btn-danger btn-sm" (click)="deleteCategory(category.category_Id)">Delete</button>
-      </td>
-    </tr>
-    </tbody>
-  </table>
+
+
+
+<body>
+<div class="container-scroller">
+
+  <!-- partial:partials/_navbar.html -->
+  <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+    <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+      Laboratory Management
+    </div>
+    <div class="navbar-menu-wrapper d-flex align-items-stretch">
+      <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+        <span class="mdi mdi-menu"></span>
+      </button>
+      <div class="search-field d-none d-md-block">
+        <form class="d-flex align-items-center h-100" action="#">
+          <div class="input-group">
+            <div class="input-group-prepend bg-transparent">
+              <i class="input-group-text border-0 mdi mdi-magnify"></i>
+            </div>
+            <input type="text" class="form-control bg-transparent border-0" placeholder="Search projects">
+          </div>
+        </form>
+      </div>
+
+      <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+        <span class="mdi mdi-menu"></span>
+      </button>
+    </div>
+  </nav>
+  <!-- partial -->
+  <div class="container-fluid page-body-wrapper">
+    <!-- partial:partials/_sidebar.html -->
+    <nav class="sidebar sidebar-offcanvas" id="sidebar">
+      <ul class="nav">
+        <li class="nav-item nav-profile">
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/dashboard">
+            <span class="menu-title">Dashboard</span>
+            <i class="mdi mdi-home menu-icon"></i>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/category-index">
+            <span class="menu-title">Item Categories</span>
+            <i class="mdi mdi-folder-multiple-outline menu-icon"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/item-index">
+            <span class="menu-title">Items</span>
+            <i class="mdi mdi-cube-outline menu-icon"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/transaction-index">
+            <span class="menu-title">Transactions</span>
+            <i class="mdi mdi-swap-horizontal menu-icon"></i>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <!-- partial -->
+    <div class="main-panel">
+      <div class="content-wrapper">
+        <div class="page-header">
+          <h3 class="page-title">
+                <span class="page-title-icon bg-gradient-primary text-white me-2">
+                  <i class="mdi mdi-home"></i>
+                </span> Category List
+          </h3>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Category List</h4>
+            <button class="btn btn-success btn-sm" routerLink="/category-create">Add Category</button>
+            <table class="table table-hover">
+              <thead class="thead-light">
+              <tr>
+                <th>Category Id</th>
+                <th>Category Name</th>
+                <th>Description</th>
+                <th>Created At</th>
+                <th>Actions</th> <!-- Add Actions column -->
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let category of categories">
+                <td>{{ category.category_Id }}</td>
+                <td>{{ category.category_Name }}</td>
+                <td>{{ category.description }}</td>
+                <td>{{ category.created_At | date:'short' }}</td>
+                <td>
+                  <button class="btn btn-primary btn-sm" (click)="editCategory(category.category_Id)">Update</button>
+                  <button class="btn btn-danger btn-sm" (click)="deleteCategory(category.category_Id)">Delete</button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
 </div>
+</body>
