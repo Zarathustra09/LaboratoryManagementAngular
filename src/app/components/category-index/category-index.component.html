@@ -1,0 +1,26 @@
+<div class="container mt-4">
+  <h2>Category List</h2>
+  <table class="table table-bordered table-hover">
+    <thead class="thead-light">
+    <tr>
+      <th>Category Id</th>
+      <th>Category Name</th>
+      <th>Description</th>
+      <th>Created At</th>
+      <th>Actions</th> <!-- Add Actions column -->
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let category of categories">
+      <td>{{ category.category_Id }}</td>
+      <td>{{ category.category_Name }}</td>
+      <td>{{ category.description }}</td>
+      <td>{{ category.created_At | date:'short' }}</td>
+      <td>
+        <button class="btn btn-primary btn-sm" (click)="editCategory(category.category_Id)">Update</button>
+        <button class="btn btn-danger btn-sm" (click)="deleteCategory(category.category_Id)">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,31 @@
+<div class="container mt-4">
+  <h2>Transaction Index</h2>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Transaction ID</th>
+      <th>Item ID</th>
+      <th>User ID</th>
+      <th>Transaction Type</th>
+      <th>Quantity</th>
+      <th>Transaction Date</th>
+      <th>Notes</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let transaction of transactions">
+      <td>{{ transaction.transaction_Id }}</td>
+      <td>{{ transaction.item_Id }}</td>
+      <td>{{ transaction.user_Id }}</td>
+      <td>{{ transaction.transaction_Type }}</td>
+      <td>{{ transaction.quantity }}</td>
+      <td>{{ transaction.transaction_Date | date }}</td>
+      <td>{{ transaction.notes }}</td>
+      <td>
+        <button class="btn btn-sm btn-danger" (click)="deleteTransaction(transaction.transaction_Id)">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

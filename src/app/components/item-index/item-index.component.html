@@ -1,0 +1,28 @@
+<div class="container mt-4">
+  <h2>Item List</h2>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Category ID</th>
+      <th>Created At</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of items">
+      <td>{{ item.item_Id }}</td>
+      <td>{{ item.item_Name }}</td>
+      <td>{{ item.description }}</td>
+      <td>{{ item.category_Id }}</td>
+      <td>{{ item.created_At | date }}</td>
+      <td>
+        <a routerLink="/item-update/{{ item.item_Id }}" class="btn btn-sm btn-primary">Edit</a>
+        <button (click)="deleteItem(item.item_Id)" class="btn btn-sm btn-danger">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

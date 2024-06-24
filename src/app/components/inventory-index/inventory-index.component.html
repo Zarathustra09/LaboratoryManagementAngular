@@ -1,0 +1,28 @@
+<div class="container">
+  <h2>Inventory Items</h2>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Item ID</th>
+      <th>Quantity</th>
+      <th>Location</th>
+      <th>Last Updated</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of inventoryItems">
+      <td>{{ item.inventory_Id }}</td>
+      <td>{{ item.item_Id }}</td>
+      <td>{{ item.quantity }}</td>
+      <td>{{ item.location }}</td>
+      <td>{{ item.last_Updated | date: 'short' }}</td>
+      <td>
+        <button class="btn btn-sm btn-primary">Edit</button>
+        <button class="btn btn-sm btn-danger" (click)="deleteItem(item.inventory_Id)">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,20 @@
+<div class="container">
+  <h2>Update Item</h2>
+  <form (ngSubmit)="updateItem()">
+    <div class="form-group">
+      <label for="itemName">Item Name:</label>
+      <input type="text" class="form-control" id="itemName" name="itemName" [(ngModel)]="item.item_Name" required>
+    </div>
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <textarea class="form-control" id="description" name="description" [(ngModel)]="item.description" required></textarea>
+    </div>
+    <div class="form-group">
+      <label for="category">Category:</label>
+      <select class="form-control" id="category" name="category" [(ngModel)]="item.category_Id">
+        <option *ngFor="let category of categories" [value]="category.category_Id">{{ category.category_Name }}</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+  </form>
+</div>
