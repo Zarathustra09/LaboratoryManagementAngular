@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CategoryService } from '../../services/category.service';
 import { Category } from '../../models/category.model';
 import {DatePipe, JsonPipe, NgForOf} from '@angular/common';
-import {Router} from "@angular/router";
+import {Router, RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-category-index',
@@ -11,7 +11,8 @@ import {Router} from "@angular/router";
   imports: [
     NgForOf,
     DatePipe,
-    JsonPipe
+    JsonPipe,
+    RouterLink
   ],
   styleUrls: ['./category-index.component.css']
 })

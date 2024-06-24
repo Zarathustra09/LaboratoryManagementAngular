@@ -1,11 +1,12 @@
 <div class="container mt-4">
   <h2>Transaction Index</h2>
+  <button class="btn btn-sm btn-success" (click)="createTransaction()">Add Transaction</button>
   <table class="table table-striped">
     <thead>
     <tr>
       <th>Transaction ID</th>
-      <th>Item ID</th>
-      <th>User ID</th>
+      <th>Item</th>
+      <th>User</th>
       <th>Transaction Type</th>
       <th>Quantity</th>
       <th>Transaction Date</th>
@@ -16,8 +17,8 @@
     <tbody>
     <tr *ngFor="let transaction of transactions">
       <td>{{ transaction.transaction_Id }}</td>
-      <td>{{ transaction.item_Id }}</td>
-      <td>{{ transaction.user_Id }}</td>
+      <td>{{ getItemName(transaction.item_Id) }}</td>
+      <td>{{ getUsername(transaction.user_Id) }}</td>
       <td>{{ transaction.transaction_Type }}</td>
       <td>{{ transaction.quantity }}</td>
       <td>{{ transaction.transaction_Date | date }}</td>

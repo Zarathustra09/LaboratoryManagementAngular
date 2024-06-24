@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemService } from '../../services/item.service';
 import { Item } from '../../models/item.model';
-import {RouterLink} from "@angular/router";
+import {Router, RouterLink} from "@angular/router";
 import {DatePipe, NgForOf} from "@angular/common";
 
 @Component({
@@ -18,10 +18,21 @@ import {DatePipe, NgForOf} from "@angular/common";
 export class ItemIndexComponent implements OnInit {
   items: Item[] = [];
 
-  constructor(private itemService: ItemService) {}
+  constructor(
+    private itemService: ItemService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.loadItems();
+  }
+
+  editItem(id: number): void {
+    this.router.navigate(['/item-update', id]);
+  }
+
+  createItem(): void {
+    this.router.navigate(['/item-create']);
   }
 
   loadItems(): void {

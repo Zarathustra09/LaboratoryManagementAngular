@@ -1,5 +1,8 @@
 <div class="container mt-4">
   <h2>Item List</h2>
+
+  <button (click)="createItem()" class="btn btn-sm btn-success">Add Item</button>
+
   <table class="table">
     <thead>
     <tr>
@@ -19,7 +22,7 @@
       <td>{{ item.category_Id }}</td>
       <td>{{ item.created_At | date }}</td>
       <td>
-        <a routerLink="/item-update/{{ item.item_Id }}" class="btn btn-sm btn-primary">Edit</a>
+        <button (click)="(editItem(item.item_Id))" class="btn btn-sm btn-primary">Edit</button>
         <button (click)="deleteItem(item.item_Id)" class="btn btn-sm btn-danger">Delete</button>
       </td>
     </tr>

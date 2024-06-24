@@ -6,6 +6,7 @@ import {CategoryService} from "./services/category.service";
 import {ItemService} from "./services/item.service";
 import {InventoryService} from "./services/inventory.service";
 import {TransactionService} from "./services/transaction.service";
+import {UserService} from "./services/user.service";
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,7 @@ import {TransactionService} from "./services/transaction.service";
   imports: [RouterOutlet,HttpClientModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  providers: [AuthService,CategoryService,ItemService,InventoryService, TransactionService]
+  providers: [AuthService,CategoryService,ItemService,InventoryService, TransactionService, UserService]
 })
 export class AppComponent {
   title = 'LaboratoryManagementAngular';
